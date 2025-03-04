@@ -4,6 +4,7 @@ resource "helm_release" "prometheus" {
   chart      = "prometheus"
   namespace  = "monitoring"
   create_namespace = true
+  timeout = 600
 
   set {
     name  = "server.persistentVolume.enabled"
@@ -17,6 +18,7 @@ resource "helm_release" "grafana" {
   chart      = "grafana"
   namespace  = "monitoring"
   create_namespace = true
+  timeout = 600
 
   set {
     name  = "persistence.enabled"
