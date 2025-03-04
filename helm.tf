@@ -4,7 +4,7 @@ resource "helm_release" "prometheus" {
   chart      = "prometheus"
   namespace  = "monitoring"
   create_namespace = true
-  timeout = 600
+  timeout    = 600
 
   set {
     name  = "server.persistentVolume.enabled"
@@ -12,18 +12,19 @@ resource "helm_release" "prometheus" {
   }
 
   set {
-    name = "server.service.type"
+    name  = "server.service.type"
     value = "LoadBalancer"
   }
 
   set {
-    name = "server.resources.limits.cpu"
-    name = "500m"
+    name  = "server.resources.limits.cpu"
+    value = "500m"
   }
 
   set {
-    name = "server.resources.limits.memory"
+    name  = "server.resources.limits.memory"
     value = "512Mi"
+  }
 }
 
 resource "helm_release" "grafana" {
@@ -32,22 +33,23 @@ resource "helm_release" "grafana" {
   chart      = "grafana"
   namespace  = "monitoring"
   create_namespace = true
-  timeout = 600
+  timeout    = 600
 
   set {
     name  = "persistence.enabled"
     value = "false"
   }
-  
+
   set {
-    name = "server.service.type"
+    name  = "service.type"
     value = "LoadBalancer"
+  }
 
   set {
     name  = "adminPassword"
     value = "admin"
   }
-   
+
   set {
     name  = "resources.limits.cpu"
     value = "500m"
