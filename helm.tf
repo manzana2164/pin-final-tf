@@ -10,6 +10,20 @@ resource "helm_release" "prometheus" {
     name  = "server.persistentVolume.enabled"
     value = "false"
   }
+
+  set {
+    name = "server.service.type"
+    value = "LoadBalancer"
+  }
+
+  set {
+    name = "server.resources.limits.cpu"
+    name = "500m"
+  }
+
+  set {
+    name = "server.resources.limits.memory"
+    value = "512Mi"
 }
 
 resource "helm_release" "grafana" {
@@ -24,10 +38,24 @@ resource "helm_release" "grafana" {
     name  = "persistence.enabled"
     value = "false"
   }
+  
+  set {
+    name = "server.service.type"
+    value = "LoadBalancer"
 
   set {
     name  = "adminPassword"
     value = "admin"
+  }
+   
+  set {
+    name  = "resources.limits.cpu"
+    value = "500m"
+  }
+
+  set {
+    name  = "resources.limits.memory"
+    value = "512Mi"
   }
 }
 
