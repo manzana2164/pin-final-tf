@@ -1,18 +1,21 @@
-# Terraform EKS Cluster Deployment
+# Grupo 5 - PIN FINAL DevOps Mundose 2403
+# Terraform EKS Cluster Deployment 
 
-This project deploys an EKS cluster named `eks-cluster-mundose` in the `us-east-1` region. The cluster includes:
-- A node group (`mundose-node-group`) with `t2.micro` instances.
-- Prometheus and Grafana deployed using Helm.
-- An NGINX service (`nginx-logs-service`) for log checking.
+Este PIN FINAL presenta el deploy de un clúster `eks-cluster-mundose` en la region `us-east-1` de AWS. El Clúster incluye:
+- Un Grupo de Nodo (`mundose-node-group`) con una isntancia `t3.medium`.
+- Prometheus & Grafana se deployan usando Helm.
+- Un servicio NGINX (`nginx-logs-service`) para controlar los logs.
 
-## Prerequisites
-1. AWS CLI configured with valid credentials.
-2. Terraform installed.
-3. kubectl and helm installed (for managing the cluster after deployment).
+## Prerrequisitos
+1. AWS CLI configurados con las credenciales válidas de user IAM con policies configuradas para EC2 Full Access.
+2. Terraform iinstalado.
+3. kubectl y helm instalado para verificación de logs y depuración.
 
-## Usage
+## Uso de este repositorio
 
-1. Clone this repository:
+1. Clonar este repo:
    ```bash
    git clone https://github.com/your-repo/terraform-eks-mundose.git
    cd terraform-eks-mundose
+   
+Seguir las instrucciones del PDF adjunto a la cursada.
