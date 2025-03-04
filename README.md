@@ -5,7 +5,7 @@ Este PIN FINAL presenta el deploy de un clúster `eks-cluster-mundose` en la reg
 - Prometheus & Grafana se despliegan usando Helm.
 - Un servicio NGINX (`nginx-logs-service`) para controlar los logs.
 
-En este repositorio detallamos la configuración general del proyecto. En la documentación adjunta en PDF, demostramos los pasos de cada instancia aplicados de este repositorio.
+En este repositorio detallamos la configuración general del proyecto. En la documentación adjunta en PDF https://github.com/manzana2164/pin-final-tf/blob/ec067e970cf9e901cbdb73232fa750728ac7345d/DevOps%20-%20Pin%20Final%20Grupo%205.pdf, demostramos los pasos de cada instancia aplicados de este repositorio.
 
 ## Estructura del Proyecto del Clúster
 
