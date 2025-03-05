@@ -39,7 +39,7 @@ terraform-eks-mundose/
    ```
 
 
-2. **Initializar Terraform**
+2. **Inicializar Terraform**
 
    Correr el comando de init para la configuración y descarga de la infraestructura:
 
