@@ -10,10 +10,16 @@ module "eks" {
 
   eks_managed_node_groups = {
     mundose-node-group = {
-      instance_types = ["t3.large"]
-      min_size       = 2
-      max_size       = 3
-      desired_size   = 2
+      instance_types = ["t3.large"]  
+      min_size       = 2             
+      max_size       = 3             
+      desired_size   = 2             
+      
+      capacity_reservation_specification = {
+        capacity_reservation_target = {
+          capacity_reservation_id = aws_ec2_capacity_reservation.grafana.id
+        }
+      }
 
       tags = {
         Environment = "Dev"
@@ -26,4 +32,11 @@ module "eks" {
     Environment = "Dev"
     Project     = "PINFINAL"
   }
+}
+
+resource "aws_ec2_capacity_reservation" "grafana" {
+  instance_type     = "t3.large"
+  instance_platform = "Linux/UNIX"
+  availability_zone = "us-east-1a"
+  instance_count    = 1
 }
