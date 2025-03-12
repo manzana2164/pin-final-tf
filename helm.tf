@@ -4,7 +4,7 @@ resource "helm_release" "prometheus" {
   chart      = "prometheus"
   namespace  = "monitoring"
   create_namespace = true
-  timeout    = 600
+  timeout    = 800
 
   set {
     name  = "server.persistentVolume.enabled"
@@ -18,11 +18,31 @@ resource "helm_release" "prometheus" {
 
   set {
     name  = "server.resources.limits.cpu"
-    value = "500m"
+    value = "1000m"
   }
 
   set {
     name  = "server.resources.limits.memory"
+    value = "1Gi"
+  }
+
+  set {
+    name  = "alertmanager.enabled"
+    value = "true"
+  }
+
+  set {
+    name  = "alertmanager.persistentVolume.enabled"
+    value = "false"
+  }
+
+  set {
+    name  = "alertmanager.resources.limits.cpu"
+    value = "500m"
+  }
+
+  set {
+    name  = "alertmanager.resources.limits.memory"
     value = "512Mi"
   }
 }
