@@ -55,10 +55,9 @@ resource "helm_release" "grafana" {
     value = "admin"
   }
 
-  # Optimized resource limits
   set {
     name  = "resources.limits.cpu"
-    value = "300m"  # Reduced from 500m
+    value = "300m"
   }
 
   set {
