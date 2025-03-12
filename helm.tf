@@ -38,7 +38,7 @@ resource "helm_release" "grafana" {
   chart      = "grafana"
   namespace  = "monitoring"
   create_namespace = true
-  timeout    = 600
+  timeout    = 1200 
 
   set {
     name  = "persistence.enabled"
@@ -55,16 +55,31 @@ resource "helm_release" "grafana" {
     value = "admin"
   }
 
+  # Optimized resource limits
   set {
     name  = "resources.limits.cpu"
-    value = "500m"
+    value = "300m"  # Reduced from 500m
   }
 
   set {
     name  = "resources.limits.memory"
-    value = "512Mi"
+    value = "256Mi" 
+  }
+
+  set {
+    name  = "tolerations[0].key"
+    value = "node.kubernetes.io/not-ready"
+  }
+  set {
+    name  = "tolerations[0].operator"
+    value = "Exists"
+  }
+  set {
+    name  = "tolerations[0].effect"
+    value = "NoExecute"
   }
 }
+
 
 resource "kubernetes_deployment" "nginx_logs_deployment" {
   metadata {
