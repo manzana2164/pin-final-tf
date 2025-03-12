@@ -7,6 +7,10 @@ Este PIN FINAL presenta el deploy de un clúster `eks-cluster-mundose` en la reg
 
 En este repositorio detallamos la configuración general del proyecto. En la documentación adjunta en PDF https://github.com/manzana2164/pin-final-tf/blob/master/DevOps%20-%20Pin%20Final%20Grupo%205.pdf , demostramos los pasos de cada instancia aplicados de este repositorio.
 
+Video grabación de la visualización del proyecto:
+https://drive.google.com/file/d/1IrP5u6a0ObC3X18xwAwDY1VQYqnGrnJj/view?usp=share_link
+
+
 ## Estructura del Proyecto del Clúster
 
 ```
